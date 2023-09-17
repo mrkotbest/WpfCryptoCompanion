@@ -1,15 +1,25 @@
 ﻿using System.Windows;
+using WpfCryptoCompanion.Stores;
 using WpfCryptoCompanion.ViewModels;
 
 namespace WpfCryptoCompanion
 {
 	public partial class App : Application
 	{
-		protected override void OnStartup(StartupEventArgs e)
+		private NavigationStore _naviStore;
+
+        public App()
+        {
+			_naviStore = new();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
 		{
+			_naviStore.CurrentViewModel = new HomeViewModel();
+
 			MainWindow = new MainWindow()
 			{
-				DataContext = new MainViewModel()
+				DataContext = new MainViewModel(_naviStore)
 			};
 			MainWindow.Show();
 

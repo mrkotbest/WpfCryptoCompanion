@@ -36,7 +36,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Margin="30 10 30 20">
-            <ListView ItemsSource="{Binding CoinsViews}" SelectedItem="{Binding SelectedCoin}">
+            <ListView ItemsSource="{Binding CoinsView}" SelectedItem="{Binding SelectedCoin}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding Rank, StringFormat=D0}" />
