@@ -25,6 +25,8 @@ namespace WpfCryptoCompanion.ViewModels
 
 		public ICommand ShowDetailsCommand { get; }
 
+		public NavigationBarViewModel NavigationBarViewModel { get; }
+
 		public bool CanShowDetails => SelectedCoin != null;
 		public string CoinId { get; set; } = "Currency";
 		public Coin SelectedCoin
@@ -52,11 +54,13 @@ namespace WpfCryptoCompanion.ViewModels
 			}
 		}
 
-		public HomeViewModel(NavigationStore navigationStore)
+		public HomeViewModel(NavigationBarViewModel naviBarViewModel, NavigationStore navigationStore)
         {
 			ParamNavigationService<Coin, DetailsViewModel> detailsNaviService = new(navigationStore,
-				(parameter) => new DetailsViewModel(parameter));
+				(parameter) => new DetailsViewModel(naviBarViewModel, parameter));
 			ShowDetailsCommand = new ShowDetailsCommand(this, detailsNaviService);
+
+			NavigationBarViewModel = naviBarViewModel;
 
 			InitCoins();
 			CoinsView.Filter = FilterCoins;

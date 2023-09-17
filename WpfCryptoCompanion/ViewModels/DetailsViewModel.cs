@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Data;
 using WpfCryptoCompanion.Models;
 using WpfCryptoCompanion.Services;
 
@@ -10,25 +8,28 @@ namespace WpfCryptoCompanion.ViewModels
 	public class DetailsViewModel : BaseViewModel
 	{
 		private readonly ApiHandler _apiHandler = new();
-		private List<PairByCoin> _pairs = new();
+		private ObservableCollection<PairByCoin> _pairs;
 
-		private Coin _coin;
+		public NavigationBarViewModel NavigationBarViewModel { get; }
 
-		public ICollectionView PairsView => CollectionViewSource.GetDefaultView(_pairs);
-
+		public Coin Coin { get; set; }
 		public string CoinName => $"{Coin.Name} ({Coin.Symbol})";
-		public Coin Coin
+		public ObservableCollection<PairByCoin> Pairs
 		{
-			get => _coin;
+			get => _pairs;
 			set
 			{
-				_coin = value;
-				OnPropertyChanged(nameof(Coin));
+				_pairs = value;
+				OnPropertyChanged(nameof(Pairs));
 			}
 		}
 
-        public DetailsViewModel(Coin coin)
+        public DetailsViewModel(NavigationBarViewModel naviBarViewModel, Coin coin)
         {
+			NavigationBarViewModel = naviBarViewModel;
+
+			Pairs = new();
+
             Coin = coin;
 			InitPairs(Coin);
         }
@@ -40,11 +41,11 @@ namespace WpfCryptoCompanion.ViewModels
 
 		private async Task LoadPairsAsync(Coin? coin)
 		{
-			_pairs.Clear();
+			Pairs.Clear();
 			var pairs = await _apiHandler.GetExchangersAsync(coin);
 			foreach (PairByCoin pair in pairs)
 			{
-				_pairs.Add(pair);
+				Pairs.Add(pair);
 			}
 		}
     }

@@ -3,10 +3,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:WpfCryptoCompanion.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:NavigationBarViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button
+                Content="🏠"
+                FontSize="18"
+                Margin="4 1"
+                Cursor="Hand"
+                Style="{StaticResource MaterialDesignToolButton}"
+                Command="{Binding NavigateHomeCommand}"/>
+        </StackPanel>
     </Grid>
 
 </UserControl>
