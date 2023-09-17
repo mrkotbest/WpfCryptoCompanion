@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:WpfCryptoCompanion.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:NavigationBarViewModel}"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" Cursor="">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,7 +22,15 @@
                 Cursor="Hand"
                 Command="{Binding NavigateHomeCommand}"
                 Style="{StaticResource MaterialDesignToolButton}" />
+            <Button
+                Content="⚖️"
+                FontSize="18"
+                Margin="4 1"
+                Cursor="Hand"
+                Style="{StaticResource MaterialDesignToolButton}"
+                Command="{Binding NavigateConverterCommand}" />
         </StackPanel>
+        
         <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
             <Button
                 Content="🌙"

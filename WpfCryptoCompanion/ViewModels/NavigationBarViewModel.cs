@@ -10,11 +10,14 @@ namespace WpfCryptoCompanion.ViewModels
 		private static bool _isDark;
 
 		public ICommand NavigateHomeCommand { get; }
+		public ICommand NavigateConverterCommand { get; }
 		public ICommand ChangeThemeCommand { get; }
 
-        public NavigationBarViewModel(NavigationService<HomeViewModel> homeNaviService)
+        public NavigationBarViewModel(NavigationService<HomeViewModel> homeNaviService,
+			NavigationService<ConverterViewModel> converterNaviService)
         {
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNaviService);
+			NavigateConverterCommand = new NavigateCommand<ConverterViewModel>(converterNaviService);
 			ChangeThemeCommand = new ChangeThemeCommand();
         }
 

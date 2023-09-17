@@ -11,27 +11,28 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <views:NavigationBarView Grid.Row="0" DataContext="{Binding NavigationBarViewModel}" />
 
         <TextBlock
-            Grid.Row="0"
+            Grid.Row="1"
             Margin="30 50 30 30"
             FontWeight="Bold"
             FontSize="40"
             Text="{Binding CoinName}"
-            TextAlignment="Center"/>
+            TextAlignment="Center" />
 
-        <ListView Grid.Row="1" Margin="30" ItemsSource="{Binding Pairs}">
+        <ListView Grid.Row="2" Margin="30" ItemsSource="{Binding Pairs}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Exchanger" DisplayMemberBinding="{Binding ExchangeId}"/>
-                    <GridViewColumn Header="Pair" DisplayMemberBinding="{Binding PairName}"/>
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding PriceUsd, StringFormat=C3}"/>
-                    <GridViewColumn Header="Volume" DisplayMemberBinding="{Binding VolumeUsd, StringFormat=F3}"/>
+                    <GridViewColumn Header="Exchanger" DisplayMemberBinding="{Binding ExchangeId}" />
+                    <GridViewColumn Header="Pair" DisplayMemberBinding="{Binding PairName}" />
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding PriceUsd, StringFormat=C3}" />
+                    <GridViewColumn Header="Volume" DisplayMemberBinding="{Binding VolumeUsd, StringFormat=F3}" />
                 </GridView>
             </ListView.View>
         </ListView>

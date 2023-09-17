@@ -10,13 +10,14 @@ namespace WpfCryptoCompanion
 		private NavigationStore _naviStore;
 		private NavigationBarViewModel _naviBarViewModel;
 
-        public App()
-        {
+		public App()
+		{
 			_naviStore = new();
-			_naviBarViewModel = new(CreateHomeNavigationService());
-        }
+			_naviBarViewModel = new(CreateHomeNavigationService(),
+				CreateConverterNavigationService());
+		}
 
-        protected override void OnStartup(StartupEventArgs e)
+		protected override void OnStartup(StartupEventArgs e)
 		{
 			NavigationService<HomeViewModel> homeNaviService = CreateHomeNavigationService();
 			homeNaviService.Navigate();
@@ -35,5 +36,11 @@ namespace WpfCryptoCompanion
 			return new NavigationService<HomeViewModel>(_naviStore,
 				() => new HomeViewModel(_naviBarViewModel, _naviStore));
 		}
-	}
+
+		private NavigationService<ConverterViewModel> CreateConverterNavigationService()
+		{
+			return new NavigationService<ConverterViewModel>(_naviStore,
+				() => new ConverterViewModel(_naviBarViewModel));
+		}
+	} 
 }
