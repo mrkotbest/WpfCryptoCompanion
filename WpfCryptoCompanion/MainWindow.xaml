@@ -7,7 +7,14 @@
         xmlns:views="clr-namespace:WpfCryptoCompanion.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="Crypto Companion" Height="450" Width="800"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Crypto Companion" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
@@ -15,6 +22,12 @@
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                     <views:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:ConverterViewModel}">
+                    <views:ConverterView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:DetailsViewModel}">
+                    <views:DetailsView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

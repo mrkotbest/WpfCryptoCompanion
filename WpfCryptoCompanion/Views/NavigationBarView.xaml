@@ -3,10 +3,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:viewmodels="clr-namespace:WpfCryptoCompanion.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:NavigationBarViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" Cursor="">
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button
+                Content="🏠"
+                FontSize="18"
+                Margin="4 1"
+                Cursor="Hand"
+                Command="{Binding NavigateHomeCommand}"
+                Style="{StaticResource MaterialDesignToolButton}" />
+            <Button
+                Content="⚖️"
+                FontSize="18"
+                Margin="4 1"
+                Cursor="Hand"
+                Style="{StaticResource MaterialDesignToolButton}"
+                Command="{Binding NavigateConverterCommand}" />
+        </StackPanel>
         
+        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button
+                Content="🌙"
+                FontSize="18"
+                Margin="4 1"
+                HorizontalAlignment="Right"
+                Cursor="Hand"
+                Command="{Binding ChangeThemeCommand}"
+                Style="{StaticResource MaterialDesignToolButton}" />
+        </StackPanel>
     </Grid>
 
 </UserControl>
