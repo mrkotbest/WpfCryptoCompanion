@@ -4,8 +4,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Input;
+using WpfCryptoCompanion.Commands;
 using WpfCryptoCompanion.Models;
 using WpfCryptoCompanion.Services;
+using WpfCryptoCompanion.Stores;
 
 namespace WpfCryptoCompanion.ViewModels
 {
@@ -19,6 +22,8 @@ namespace WpfCryptoCompanion.ViewModels
 
 		public IEnumerable<Coin> Coins => _coins;
 		public ICollectionView CoinsView => CollectionViewSource.GetDefaultView(Coins);
+
+		public ICommand ShowDetailsCommand { get; }
 
 		public bool CanShowDetails => SelectedCoin != null;
 		public string CoinId { get; set; } = "Currency";
@@ -47,8 +52,12 @@ namespace WpfCryptoCompanion.ViewModels
 			}
 		}
 
-		public HomeViewModel()
+		public HomeViewModel(NavigationStore navigationStore)
         {
+			ParamNavigationService<Coin, DetailsViewModel> detailsNaviService = new(navigationStore,
+				(parameter) => new DetailsViewModel(parameter));
+			ShowDetailsCommand = new ShowDetailsCommand(this, detailsNaviService);
+
 			InitCoins();
 			CoinsView.Filter = FilterCoins;
         }

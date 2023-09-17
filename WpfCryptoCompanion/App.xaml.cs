@@ -15,7 +15,7 @@ namespace WpfCryptoCompanion
 
         protected override void OnStartup(StartupEventArgs e)
 		{
-			_naviStore.CurrentViewModel = new HomeViewModel();
+			_naviStore.CurrentViewModel = new HomeViewModel(_naviStore);
 
 			MainWindow = new MainWindow()
 			{
