@@ -19,3 +19,6 @@ Libraries:
 
 ## Detailed information about the coin
 ![](https://github.com/mrkotbest/WpfCryptoCompanion/blob/master/docs/details.png?raw=true)
+
+## Dark theme
+![](https://github.com/mrkotbest/WpfCryptoCompanion/blob/master/docs/dark.png?raw=true)
