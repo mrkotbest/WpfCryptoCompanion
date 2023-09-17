@@ -24,7 +24,7 @@
             FontWeight="Bold"
             FontSize="40"
             Text="{Binding CoinName}"
-            TextAlignment="Center" />
+            TextAlignment="Center" Cursor="" />
 
         <ListView Grid.Row="2" Margin="30" ItemsSource="{Binding Pairs}">
             <ListView.View>

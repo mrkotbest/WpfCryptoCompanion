@@ -11,12 +11,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <views:NavigationBarView Grid.Row="0" DataContext="{Binding NavigationBarViewModel}"/>
+        <views:NavigationBarView Grid.Row="0" DataContext="{Binding NavigationBarViewModel}" />
 
         <Label
             Grid.Row="1"
@@ -27,7 +27,7 @@
             FontWeight="Bold"
             Content="Cryptocurrency Converter"
             VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"/>
+            HorizontalContentAlignment="Center" />
 
         <Grid
             Grid.Row="2"
@@ -38,9 +38,9 @@
             Margin="0 30 0 0"
             Background="#f5f5f5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="70" />
             </Grid.RowDefinitions>
             <TextBox
                 Grid.Row="0"
@@ -51,7 +51,7 @@
                 FontSize="20"
                 FontStretch="Expanded"
                 Text="{Binding FirstAmountText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                HorizontalAlignment="Left"/>
+                HorizontalAlignment="Left" />
 
             <ComboBox
                 Grid.Row="1"
@@ -68,7 +68,7 @@
                 VerticalAlignment="Center">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
+                        <VirtualizingStackPanel />
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
@@ -88,7 +88,7 @@
                 VerticalAlignment="Center">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
+                        <VirtualizingStackPanel />
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
@@ -103,7 +103,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 TextAlignment="Center"
-                Text="{Binding SecondAmount, Mode=OneWay}"/>
+                Text="{Binding SecondAmount, Mode=OneWay}" />
         </Grid>
     </Grid>
     
