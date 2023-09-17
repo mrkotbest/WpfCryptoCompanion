@@ -18,7 +18,7 @@ namespace WpfCryptoCompanion.Services
 			try
 			{
 				HttpClient client = new();
-				string apiUrl = $"{GET_COINS_DATA_URL}?limit=20";
+				string apiUrl = $"{GET_COINS_DATA_URL}?limit=1000";
 
 				HttpResponseMessage response = await client.GetAsync(apiUrl);
 				response.EnsureSuccessStatusCode();
