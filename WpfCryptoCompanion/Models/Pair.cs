@@ -10,7 +10,7 @@ namespace WpfCryptoCompanion.Models
 		public string BaseSymbol { get; set; }
 
 		[JsonProperty("exchangeId")]
-		public string ExchangeId { get; set; }
+		public virtual string ExchangeId { get; set; }
 
 		[JsonProperty("priceUsd")]
 		public float PriceUsd { get; set; }
